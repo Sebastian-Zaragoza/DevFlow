@@ -2,7 +2,7 @@
 DevFlow is a comprehensive full-stack web application built to facilitate collaborative management of software development projects and tasks. It enables teams to create, edit, assign, and track projects and tasks efficiently, with a focus on security, scalability, and user-friendly interactions. The application features modular architecture, secure authentication mechanisms, and a responsive user interface, making it ideal for software development teams of any size.
 
 ## Note
-I’ve successfully deployed a live demo of the application at [app.devflow.site](https://app.devflow.site), leveraging AWS with S3 + CloudFront + ECS for a professional-grade setup. If you'd like a live demo of the app, please send me an email. Running it on AWS has high costs, so I don't keep it online all the time. Stay tuned for upcoming updates on this exciting journey!
+I’ve successfully deployed a live demo of the application at [devflow.site](https://www.devflow.site) using Vercerl + Railway stack for the free version. For a professional-grade setup, the app is also configured on AWS using S3, CloudFront, and ECS at [app.devflow.site](https://app.devflow.site). Please note that the AWS environment is not kept online 24/7 due to high operational costs. If you would like a live walkthrough of the professional setup, feel free to contact me via email. Stay tuned for more updates on this journey!
 
 ![AWS Deployment](Resources/AWS_deployment_devflow.gif)
 
