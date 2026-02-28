@@ -82,6 +82,9 @@ This demo highlights how notifications for each important action (such as projec
 ### Additional Tools
 - Environment management via .env files
 
+## General Architecture
+You can view a summary of the general architecture: https://mermaid.ai/d/c6340cac-1a00-4898-a529-71ed6acc3119
+
 ## Project Structure
 The project is divided into two main directories: the backend and the frontend. Below is the high-level directory structure:
 
