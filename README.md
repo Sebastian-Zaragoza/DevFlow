@@ -83,7 +83,7 @@ This demo highlights how notifications for each important action (such as projec
 - Environment management via .env files
 
 ## General Architecture
-You can view a summary of the general architecture here: [Devflow Software Architecture](https://fish-margin-192.notion.site/DevFlow-1e72551c1caa80019d45c8564dee1e4a?pvs=74).
+You can view a summary of the general architecture here: [Devflow Notion Page Here](https://fish-margin-192.notion.site/DevFlow-1e72551c1caa80019d45c8564dee1e4a?pvs=74).
 
 ## Project Structure
 The project is divided into two main directories: the backend and the frontend. Below is the high-level directory structure:
