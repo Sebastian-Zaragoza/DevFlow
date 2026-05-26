@@ -9,7 +9,7 @@ I’ve successfully deployed a live demo of the application at [devflow.site](ht
 ## Demo Views
 Explore the core functionalities of the **DevFlow platform** in this comprehensive 2-minute walkthrough. This video demonstrates how the platform integrates role-based contributions, customizable workflows, and smart tracking to eliminate development bottlenecks and team alignment issues.
 
-[![DevFlow Demo Video](https://img.youtube.com/vi/TU_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=TU_VIDEO_ID)
+[![DevFlow Demo Video](https://img.youtube.com/vi/oelEgqIXHzE/maxresdefault.jpg)](https://www.youtube.com/watch?v=oelEgqIXHzE)
 
 ### Key Features Covered:
 
