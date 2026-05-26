@@ -11,7 +11,9 @@ import {TeamMemberController} from "../controllers/teamController";
 import {NoteController} from "../controllers/noteController";
 
 const router = Router();
-router.use(authenticate);
+router.use
+
+(authenticate);
 router.post(
   "/",
   body("projectName")
