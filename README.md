@@ -1,5 +1,5 @@
 ## Overview
-DevFlow is a comprehensive full-stack web application built to facilitate collaborative management of software development projects and tasks. It enables teams to create, edit, assign, and track projects and tasks efficiently, with a focus on security, scalability, and user-friendly interactions. The application features modular architecture, secure authentication mechanisms, and a responsive user interface, making it ideal for software development teams of any size.
+A collaborative platform designed to streamline software development projects and task management by integrating role-based contributions for clear team responsibilities, customizable workflows tailored to specific needs, smart task dependencies that automatically trigger subsequent tasks the moment prerequisites are completed, and real-time progress tracking at both the task and project level, effectively eliminating workflow inconsistencies.
 
 ## Note
 I’ve successfully deployed a live demo of the application at [devflow.site](https://www.devflow.site) using Vercerl + Railway stack for the free version. For a professional-grade setup, the app is also configured on AWS using S3, CloudFront, and ECS at [app.devflow.site](https://app.devflow.site). Please note that the AWS environment is not kept online 24/7 due to high operational costs. If you would like a live walkthrough of the professional setup, feel free to contact me via email. Stay tuned for more updates on this journey!
@@ -81,6 +81,9 @@ This demo highlights how notifications for each important action (such as projec
 
 ### Additional Tools
 - Environment management via .env files
+
+## General Architecture
+You can view a summary of the general architecture here: [Devflow Notion Page Here](https://fish-margin-192.notion.site/DevFlow-1e72551c1caa80019d45c8564dee1e4a?pvs=74).
 
 ## Project Structure
 The project is divided into two main directories: the backend and the frontend. Below is the high-level directory structure:
