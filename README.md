@@ -7,32 +7,16 @@ I’ve successfully deployed a live demo of the application at [devflow.site](ht
 ![AWS Deployment](Resources/AWS_deployment_devflow.gif)
 
 ## Demo Views
-Below are animated demos showcasing key features of the app. Each GIF demonstrates specific views and functionalities.
+Explore the core functionalities of the **DevFlow platform** in this comprehensive 2-minute walkthrough. This video demonstrates how the platform integrates role-based contributions, customizable workflows, and smart tracking to eliminate development bottlenecks and team alignment issues.
 
-### Account View
-This demo covers account creation, email confirmation using the link sent via email, password recovery, resending the confirmation email if the account is not yet confirmed, and logging in with credentials.
+[![DevFlow Demo Video](https://img.youtube.com/vi/oelEgqIXHzE/maxresdefault.jpg)](https://www.youtube.com/watch?v=oelEgqIXHzE)
 
-![Account View Demo](Resources/Account-view.gif)
+### Key Features Covered:
 
-### Projects and Tasks View
-This demo shows how to create, update, and delete projects. It also illustrates adding collaborators and their views, how role permissions (administrator vs. collaborator) influence actions, adding tasks and their behavior, adding notes, deleting items if you are the creator, viewing task details, and how the project updates itself automatically.
-
-![Projects and Tasks View Demo](Resources/Projects_and_tasks_view.gif)
-
-### Delete Project View
-This demo explains how to delete a project, including system safeguards that invalidate the deletion if there are incomplete tasks or remaining collaborators.
-
-![Delete Project View Demo](Resources/Delete_project_view.gif)
-
-### Update Profile View
-This demo demonstrates how to update your user profile, including editing personal details and settings.
-
-![Update Profile View Demo](Resources/Update_profile_view.gif)
-
-### Email Notifications View
-This demo highlights how notifications for each important action (such as project updates, task assignments, or collaborations) are sent via email.
-
-![Email Notifications View Demo](Resources/Email_notifications_view.gif)
+*   **Role-Based Contributions:** Ensures clear team responsibilities and proper access control, keeping everyone focused on their specific part of the project.
+*   **Customizable Workflows:** Learn how to tailor the platform's boards and flows to match your team’s specific software development lifecycle and unique needs.
+*   **Smart Task Dependencies:** Watch how the system automatically triggers and unlocks subsequent tasks the exact moment their prerequisites are completed, removing manual follow-ups.
+*   **Real-Time Progress Tracking:** Monitor project health and delivery velocity at both the macro (overall project timeline) and micro (individual tasks) levels to effectively eliminate workflow inconsistencies.
 
 ## Features
 - **User Authentication and Management**:
