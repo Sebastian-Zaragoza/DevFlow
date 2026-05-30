@@ -24,7 +24,7 @@ router.post(
 
 router.post(
   "/confirm-account",
-  body("token").notEmpty().withMessage("The token is required"),
+  body("token").trim().notEmpty().withMessage("The token is required"),
   handleInputErrors,
   AuthController.confirmAccount,
 );
@@ -53,14 +53,14 @@ router.post(
 
 router.post(
   "/validate-token",
-  body("token").notEmpty().withMessage("The token is required"),
+  body("token").trim().notEmpty().withMessage("The token is required"),
   handleInputErrors,
   AuthController.validateToken,
 );
 
 router.post(
   "/update-password/:token",
-  param("token").isNumeric().withMessage("The token is required"),
+  param("token").trim().isNumeric().withMessage("The token is required"),
   body("password")
     .isLength({ min: 8 })
     .withMessage("The password is shorter than 8 characters"),

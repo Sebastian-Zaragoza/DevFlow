@@ -8,33 +8,38 @@ import { generateJWT } from "../utils/jwt";
 
 export class AuthController {
   static createAccount = async (req: Request, res: Response) => {
-    const { email } = req.body;
-    const userExists = await User.findOne({ email });
-    if (userExists) {
-      const error = new Error("The user already exists");
-      res.status(409).json({ error: error.message });
-      return;
+    try {
+      const { email } = req.body;
+      const userExists = await User.findOne({ email });
+      if (userExists) {
+        const error = new Error("The user already exists");
+        res.status(409).json({ error: error.message });
+        return;
+      }
+      const user = new User(req.body);
+      user.password = await hashPassword(req.body.password);
+
+      const token = new Token();
+      token.token = generateToken();
+      token.user = user.id;
+
+      await Promise.all([user.save(), token.save()]);
+
+      AuthEmails.sendConfirmationEmail({
+        email: user.email,
+        name: user.name,
+        token: token.token,
+      });
+
+      res.send("User created. Confirm the account via email");
+    } catch (error) {
+      res.status(500).json({ error: "Error creating the account" });
     }
-    const user = new User(req.body);
-    user.password = await hashPassword(req.body.password);
-
-    const token = new Token();
-    token.token = generateToken();
-    token.user = user.id;
-
-    AuthEmails.sendConfirmationEmail({
-      email: user.email,
-      name: user.name,
-      token: token.token,
-    });
-
-    await Promise.allSettled([user.save(), token.save()]);
-    res.send("User created. Confirm the account via email");
   };
   static confirmAccount = async (req: Request, res: Response) => {
     try {
       const { token } = req.body;
-      const tokenExists = await Token.findOne({ token });
+      const tokenExists = await Token.findOne({ token: token.trim() });
       if (!tokenExists) {
         const error = new Error("Invalid token");
         res.status(404).json({ error: error.message });
@@ -44,7 +49,7 @@ export class AuthController {
       const user = await User.findById(tokenExists.user);
       user.confirmed = true;
 
-      await Promise.allSettled([user.save(), tokenExists.deleteOne()]);
+      await Promise.all([user.save(), tokenExists.deleteOne()]);
       res.send("User confirmed");
     } catch (error) {
       res.status(500).json({ error: "Error confirming the account" });
@@ -60,6 +65,7 @@ export class AuthController {
         return;
       }
       if (!user.confirmed) {
+        await Token.deleteMany({ user: user.id });
         const token = new Token();
         token.user = user.id;
         token.token = generateToken();
@@ -104,9 +110,12 @@ export class AuthController {
         return;
       }
 
+      await Token.deleteMany({ user: user.id });
       const token = new Token();
       token.token = generateToken();
       token.user = user.id;
+
+      await Promise.all([user.save(), token.save()]);
 
       AuthEmails.sendConfirmationEmail({
         email: user.email,
@@ -114,7 +123,6 @@ export class AuthController {
         token: token.token,
       });
 
-      await Promise.allSettled([user.save(), token.save()]);
       res.send("Check the email account to confirm it");
     } catch (error) {
       res.status(404).json({ error: error.message });
@@ -130,6 +138,7 @@ export class AuthController {
         return;
       }
 
+      await Token.deleteMany({ user: user.id });
       const token = new Token();
       token.token = generateToken();
       token.user = user.id;
@@ -148,7 +157,7 @@ export class AuthController {
   static validateToken = async (req: Request, res: Response) => {
     try {
       const { token } = req.body;
-      const tokenExists = await Token.findOne({ token });
+      const tokenExists = await Token.findOne({ token: token.trim() });
       if (!tokenExists) {
         const error = new Error("Invalid token");
         res.status(404).json({ error: error.message });
@@ -162,7 +171,7 @@ export class AuthController {
   static updatePassword = async (req: Request, res: Response) => {
     try {
       const { token } = req.params;
-      const tokenExists = await Token.findOne({ token });
+      const tokenExists = await Token.findOne({ token: token.trim() });
       if (!tokenExists) {
         const error = new Error("Invalid token");
         res.status(404).json({ error: error.message });
@@ -170,7 +179,7 @@ export class AuthController {
       }
       const user = await User.findById(tokenExists.user);
       user.password = await hashPassword(req.body.password);
-      await Promise.allSettled([user.save(), tokenExists.deleteOne()]);
+      await Promise.all([user.save(), tokenExists.deleteOne()]);
       res.send("Password updated");
     } catch (error) {
       res.status(500).json({ error: "Error updating password" });
